@@ -1,0 +1,10 @@
+{
+  "name": "@bello-osr/api",
+  "version": "1.0.0",
+  "description": "api地址管理",
+  "main": "index.ts",
+  "license": "ISC",
+  "dependencies": {
+    "@bello-osr/utils": "workspace:^1.0.0"
+  }
+}

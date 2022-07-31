@@ -1,0 +1,13 @@
+{
+  "*.{js,ts}": ["pnpm lint:eslint", "pnpm lint:prettier", "pnpm test:git"],
+
+  "package.json": ["pnpm lint:prettier"],
+  "*.vue": [
+    "pnpm lint:eslint",
+    "pnpm lint:stylelint",
+    "pnpm lint:prettier",
+    "pnpm test:git"
+  ],
+  "*.scss": ["pnpm lint:stylelint", "pnpm lint:prettier"],
+  "*.md": ["pnpm lint:markdownlint", "pnpm lint:prettier"]
+}

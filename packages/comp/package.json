@@ -1,0 +1,22 @@
+{
+  "name": "@bello-osr/comp",
+  "version": "1.0.0",
+  "description": "共用组件",
+  "main": "index.ts",
+  "license": "ISC",
+  "dependencies": {
+    "vue-demi": "^0.13.5"
+  },
+  "peerDependencies": {
+    "@vue/composition-api": "^1.1.0",
+    "vue": "^2.6.0 || ^3.2.0"
+  },
+  "peerDependenciesMeta": {
+    "vue": {
+      "optional": true
+    },
+    "@vue/composition-api": {
+      "optional": true
+    }
+  }
+}

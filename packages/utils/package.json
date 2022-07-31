@@ -1,0 +1,7 @@
+{
+  "name": "@bello-osr/utils",
+  "version": "1.0.0",
+  "description": "工具类",
+  "main": "index.ts",
+  "license": "ISC"
+}

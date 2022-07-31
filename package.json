@@ -1,0 +1,79 @@
+{
+  "name": "@bello-osr/monorepo",
+  "version": "1.0.0",
+  "description": "OSR monorepo",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "preinstall": "pnpm add bin-wrapper-china -D -w && china-bin-env",
+    "ts-clean": "tsc --build --clean",
+    "-------test---------": "----------------------------",
+    "test": "vitest",
+    "test:git": "vitest run --passWithNoTests",
+    "coverage": "vitest run --coverage",
+    "-------lint---------": "----------------------------",
+    "lint:all:eslint": "eslint --fix --ext .ts,.vue,.js ./src",
+    "lint:all:markdownlint": "pnpm lint:markdownlint \"docs/*.md\" \"*.md\"",
+    "lint:all:prettier": "pnpm lint:prettier \"**/*.{js,json,css,scss,vue,html,md}\"",
+    "lint:all:stylelint": "pnpm lint:stylelint \"src/**/*.{vue,scss}\"",
+    "lint:eslint": "eslint --fix",
+    "lint:markdownlint": "markdownlint",
+    "lint:prettier": "prettier --write --loglevel warn",
+    "lint:stylelint": "stylelint --fix",
+    "-------apps---------": "----------------------------",
+    "dev": "pnpm run dev --filter @bello-osr/vite-vue2-starter",
+    "build": "tsc && vite build ./apps/vite-vue2-starter && pnpm run ts-clean",
+    "docker-build": "docker build -t vite-vue2-starter -f ./apps/vite-vue2-starter/Dockerfile .",
+    "docker-run": "docker run --name test -p 8080:80 -d vite-vue2-starter",
+    "docker": "pnpm run docker-build && pnpm run docker-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/threfo/btp_f_osr_monorepo.git"
+  },
+  "author": "Thomas Lau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/threfo/btp_f_osr_monorepo/issues"
+  },
+  "homepage": "https://github.com/threfo/btp_f_osr_monorepo#readme",
+  "engines": {
+    "node": "^12 || >=14",
+    "pnpm": "^6 || >=5"
+  },
+  "resolutions": {
+    "bin-wrapper": "npm:bin-wrapper-china"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "@types/node": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
+    "bin-wrapper-china": "^0.1.0",
+    "eslint": "^8.20.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.2.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "markdownlint-cli": "^0.32.0",
+    "postcss-html": "^1.5.0",
+    "prettier": "^2.7.1",
+    "stylelint": "^14.9.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recommended-vue": "^1.4.0",
+    "stylelint-order": "^5.0.0",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.0",
+    "vitest": "^0.18.1"
+  }
+}
